@@ -13,9 +13,10 @@ import java.util.List;
 public class MemberController {
     @Reference
     MemberService memberService;
+
     @RequestMapping("/test")
     @ResponseBody
-    public List<Member> test(){
+    public List<Member> test() {
         List<Member> members = memberService.selectAllMember();
         return members;
     }
