@@ -3,7 +3,7 @@
 <mapper namespace="com.kgc.kmall.manager.mapper.PmsSkuInfoMapper" >
   <resultMap id="BaseResultMap" type="com.kgc.kmall.bean.PmsSkuInfo" >
     <id column="id" property="id" jdbcType="BIGINT" />
-    <result column="product_id" property="productId" jdbcType="BIGINT" />
+    <result column="product_id" property="spuId" jdbcType="BIGINT" />
     <result column="price" property="price" jdbcType="DOUBLE" />
     <result column="sku_name" property="skuName" jdbcType="VARCHAR" />
     <result column="sku_desc" property="skuDesc" jdbcType="VARCHAR" />
@@ -103,12 +103,12 @@
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.kgc.kmall.bean.PmsSkuInfo" >
+  <insert id="insert" useGeneratedKeys="true" keyProperty="id" parameterType="com.kgc.kmall.bean.PmsSkuInfo" >
     insert into pms_sku_info (id, product_id, price, 
       sku_name, sku_desc, weight, 
       tm_id, catalog3_id, sku_default_img
       )
-    values (#{id,jdbcType=BIGINT}, #{productId,jdbcType=BIGINT}, #{price,jdbcType=DOUBLE}, 
+    values (#{id,jdbcType=BIGINT}, #{spuId,jdbcType=BIGINT}, #{price,jdbcType=DOUBLE}, 
       #{skuName,jdbcType=VARCHAR}, #{skuDesc,jdbcType=VARCHAR}, #{weight,jdbcType=DOUBLE}, 
       #{tmId,jdbcType=BIGINT}, #{catalog3Id,jdbcType=BIGINT}, #{skuDefaultImg,jdbcType=VARCHAR}
       )
@@ -119,7 +119,7 @@
       <if test="id != null" >
         id,
       </if>
-      <if test="productId != null" >
+      <if test="spuId != null" >
         product_id,
       </if>
       <if test="price != null" >
@@ -148,8 +148,8 @@
       <if test="id != null" >
         #{id,jdbcType=BIGINT},
       </if>
-      <if test="productId != null" >
-        #{productId,jdbcType=BIGINT},
+      <if test="spuId != null" >
+        #{spuId,jdbcType=BIGINT},
       </if>
       <if test="price != null" >
         #{price,jdbcType=DOUBLE},
@@ -186,8 +186,8 @@
       <if test="record.id != null" >
         id = #{record.id,jdbcType=BIGINT},
       </if>
-      <if test="record.productId != null" >
-        product_id = #{record.productId,jdbcType=BIGINT},
+      <if test="record.spuId != null" >
+        product_id = #{record.spuId,jdbcType=BIGINT},
       </if>
       <if test="record.price != null" >
         price = #{record.price,jdbcType=DOUBLE},
@@ -218,7 +218,7 @@
   <update id="updateByExample" parameterType="map" >
     update pms_sku_info
     set id = #{record.id,jdbcType=BIGINT},
-      product_id = #{record.productId,jdbcType=BIGINT},
+      product_id = #{record.spuId,jdbcType=BIGINT},
       price = #{record.price,jdbcType=DOUBLE},
       sku_name = #{record.skuName,jdbcType=VARCHAR},
       sku_desc = #{record.skuDesc,jdbcType=VARCHAR},
@@ -233,8 +233,8 @@
   <update id="updateByPrimaryKeySelective" parameterType="com.kgc.kmall.bean.PmsSkuInfo" >
     update pms_sku_info
     <set >
-      <if test="productId != null" >
-        product_id = #{productId,jdbcType=BIGINT},
+      <if test="spuId != null" >
+        product_id = #{spuId,jdbcType=BIGINT},
       </if>
       <if test="price != null" >
         price = #{price,jdbcType=DOUBLE},
@@ -262,7 +262,7 @@
   </update>
   <update id="updateByPrimaryKey" parameterType="com.kgc.kmall.bean.PmsSkuInfo" >
     update pms_sku_info
-    set product_id = #{productId,jdbcType=BIGINT},
+    set product_id = #{spuId,jdbcType=BIGINT},
       price = #{price,jdbcType=DOUBLE},
       sku_name = #{skuName,jdbcType=VARCHAR},
       sku_desc = #{skuDesc,jdbcType=VARCHAR},
