@@ -13,13 +13,14 @@ public class PmsProductSaleAttr implements Serializable {
     private String saleAttrName;
 
 
-    private List<pmsProductSaleAttrValue> spuSaleAttrValueList;
 
-    public List<pmsProductSaleAttrValue> getSpuSaleAttrValueList() {
+    private List<PmsProductSaleAttrValue> spuSaleAttrValueList;
+
+    public List<PmsProductSaleAttrValue> getSpuSaleAttrValueList() {
         return spuSaleAttrValueList;
     }
 
-    public void setSpuSaleAttrValueList(List<pmsProductSaleAttrValue> spuSaleAttrValueList) {
+    public void setSpuSaleAttrValueList(List<PmsProductSaleAttrValue> spuSaleAttrValueList) {
         this.spuSaleAttrValueList = spuSaleAttrValueList;
     }
 

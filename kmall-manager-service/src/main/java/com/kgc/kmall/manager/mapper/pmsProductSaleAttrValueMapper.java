@@ -1,31 +1,31 @@
 package com.kgc.kmall.manager.mapper;
 
-import com.kgc.kmall.bean.pmsProductSaleAttrValue;
-import com.kgc.kmall.bean.pmsProductSaleAttrValueExample;
+import com.kgc.kmall.bean.PmsProductSaleAttrValue;
+import com.kgc.kmall.bean.PmsProductSaleAttrValueExample;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
 public interface pmsProductSaleAttrValueMapper {
-    int countByExample(pmsProductSaleAttrValueExample example);
+    int countByExample(PmsProductSaleAttrValueExample example);
 
-    int deleteByExample(pmsProductSaleAttrValueExample example);
+    int deleteByExample(PmsProductSaleAttrValueExample example);
 
     int deleteByPrimaryKey(Long id);
 
-    int insert(pmsProductSaleAttrValue record);
+    int insert(PmsProductSaleAttrValue record);
 
-    int insertSelective(pmsProductSaleAttrValue record);
+    int insertSelective(PmsProductSaleAttrValue record);
 
-    List<pmsProductSaleAttrValue> selectByExample(pmsProductSaleAttrValueExample example);
+    List<PmsProductSaleAttrValue> selectByExample(PmsProductSaleAttrValueExample example);
 
-    pmsProductSaleAttrValue selectByPrimaryKey(Long id);
+    PmsProductSaleAttrValue selectByPrimaryKey(Long id);
 
-    int updateByExampleSelective(@Param("record") pmsProductSaleAttrValue record, @Param("example") pmsProductSaleAttrValueExample example);
+    int updateByExampleSelective(@Param("record") PmsProductSaleAttrValue record, @Param("example") PmsProductSaleAttrValueExample example);
 
-    int updateByExample(@Param("record") pmsProductSaleAttrValue record, @Param("example") pmsProductSaleAttrValueExample example);
+    int updateByExample(@Param("record") PmsProductSaleAttrValue record, @Param("example") PmsProductSaleAttrValueExample example);
 
-    int updateByPrimaryKeySelective(pmsProductSaleAttrValue record);
+    int updateByPrimaryKeySelective(PmsProductSaleAttrValue record);
 
-    int updateByPrimaryKey(pmsProductSaleAttrValue record);
+    int updateByPrimaryKey(PmsProductSaleAttrValue record);
 }

@@ -10,9 +10,11 @@ import com.kgc.kmall.manager.mapper.PmsSkuInfoMapper;
 import com.kgc.kmall.manager.mapper.PmsSkuSaleAttrValueMapper;
 import com.kgc.kmall.service.SkuService;
 import org.apache.dubbo.config.annotation.Service;
+import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
 
+@Component
 @Service
 public class SkuServiceImpl implements SkuService {
     @Resource
@@ -40,5 +42,9 @@ public class SkuServiceImpl implements SkuService {
             pmsSkuSaleAttrValueMapper.insert(pmsSkuSaleAttrValue);
         }
         return "success";
+    }
+    @Override
+    public PmsSkuInfo selectBySkuId(Long id) {
+        return pmsSkuInfoMapper.selectByPrimaryKey(id);
     }
 }

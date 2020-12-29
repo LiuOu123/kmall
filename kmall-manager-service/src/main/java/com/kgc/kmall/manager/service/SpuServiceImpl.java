@@ -7,8 +7,6 @@ import org.apache.dubbo.config.annotation.Service;
 import org.springframework.stereotype.Component;
 
 
-import com.kgc.kmall.service.SpuService;
-
 import javax.annotation.Resource;
 import java.util.List;
 
@@ -54,7 +52,7 @@ public class SpuServiceImpl implements SpuService {
             //保存销售属性
             for (PmsProductSaleAttr pmsProductSaleAttr : pmsProductInfo.getSpuSaleAttrList()) {
                 pmsProductSaleAttr.setProductId(id);
-                for (pmsProductSaleAttrValue pmsProductSaleAttrValue : pmsProductSaleAttr.getSpuSaleAttrValueList()) {
+                for (PmsProductSaleAttrValue pmsProductSaleAttrValue : pmsProductSaleAttr.getSpuSaleAttrValueList()) {
                     pmsProductSaleAttrValue.setProductId(id);
                     pmsProductSaleAttrValueMapper.insert(pmsProductSaleAttrValue);
                 }
@@ -67,6 +65,11 @@ public class SpuServiceImpl implements SpuService {
 
         return result;
     }
+    @Override
+    public List<PmsProductSaleAttr> spuSaleAttrListIsCheck(Long spuId, Long skuId) {
+        List<PmsProductSaleAttr> pmsProductSaleAttrList = pmsProductSaleAttrMapper.spuSaleAttrListIsCheck(spuId, skuId);
+        return pmsProductSaleAttrList;
+    }
 
     @Override
     public List<PmsProductSaleAttr> spuSaleAttrList(Long spuId) {
@@ -75,12 +78,12 @@ public class SpuServiceImpl implements SpuService {
         criteria.andProductIdEqualTo(spuId);
         List<PmsProductSaleAttr> pmsProductSaleAttrList = pmsProductSaleAttrMapper.selectByExample(example);
         for (PmsProductSaleAttr pmsProductSaleAttr : pmsProductSaleAttrList) {
-            pmsProductSaleAttrValueExample example1=new pmsProductSaleAttrValueExample();
-            pmsProductSaleAttrValueExample.Criteria criteria1 = example1.createCriteria();
+            PmsProductSaleAttrValueExample example1=new PmsProductSaleAttrValueExample();
+            PmsProductSaleAttrValueExample.Criteria criteria1 = example1.createCriteria();
             criteria1.andSaleAttrIdEqualTo(pmsProductSaleAttr.getSaleAttrId());
             criteria1.andProductIdEqualTo(spuId);
 
-            List<pmsProductSaleAttrValue> pmsProductSaleAttrValueList = pmsProductSaleAttrValueMapper.selectByExample(example1);
+            List<PmsProductSaleAttrValue> pmsProductSaleAttrValueList = pmsProductSaleAttrValueMapper.selectByExample(example1);
             pmsProductSaleAttr.setSpuSaleAttrValueList(pmsProductSaleAttrValueList);
         }
         return pmsProductSaleAttrList;

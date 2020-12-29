@@ -3,14 +3,14 @@ package com.kgc.kmall.bean;
 import java.util.ArrayList;
 import java.util.List;
 
-public class pmsProductSaleAttrValueExample {
+public class PmsProductSaleAttrValueExample {
     protected String orderByClause;
 
     protected boolean distinct;
 
     protected List<Criteria> oredCriteria;
 
-    public pmsProductSaleAttrValueExample() {
+    public PmsProductSaleAttrValueExample() {
         oredCriteria = new ArrayList<Criteria>();
     }
 
