@@ -30,10 +30,16 @@
     <dubbo.dependencies.zookeeper.version>2.7.1</dubbo.dependencies.zookeeper.version>
     <fastjson.version>1.2.46</fastjson.version>
     <jedis.version>2.9.0</jedis.version>
+    <commons.lang3>3.8.1</commons.lang3>
   </properties>
 
 <dependencyManagement>
   <dependencies>
+    <dependency>
+      <groupId>org.apache.commons</groupId>
+      <artifactId>commons-lang3</artifactId>
+      <version>${commons.lang3}</version>
+    </dependency>
     <dependency>
       <groupId>redis.clients</groupId>
       <artifactId>jedis</artifactId>

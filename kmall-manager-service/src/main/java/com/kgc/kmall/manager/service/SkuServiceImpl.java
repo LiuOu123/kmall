@@ -167,4 +167,9 @@ public class SkuServiceImpl implements SkuService {
         }
         return pmsSkuInfos;
     }
+
+    @Override
+    public List<PmsSkuInfo> selectAll() {
+        return pmsSkuInfoMapper.getAllSku();
+    }
 }

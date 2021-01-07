@@ -298,7 +298,7 @@
 <script language="JavaScript">
     function item(skuid) {
         console.log("skuid:"+skuid);
-        window.location.href="http://item.kmall.com:8083/"+skuid+".html";
+        window.location.href="http://localhost:8083/"+skuid+".html";
     }
 
     function searchList(){
@@ -349,7 +349,7 @@
     $(".dizhi_con").hover(function(){
         $(this).css({display:"block"})
     },function(){
-        $(this).css({display:"none"})
+        var $li = $(".GM_nav_logo>div:gt(3)").show();
     });
     //显示隐藏
     var $li = $(".GM_nav_logo>div:gt(3)").show();

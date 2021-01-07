@@ -11,6 +11,7 @@ public class PmsSkuAttrValue implements Serializable {
 
     private Long skuId;
 
+
     public Long getId() {
         return id;
     }

@@ -12,4 +12,6 @@ public interface SkuService {
     List<PmsSkuInfo> selectBySpuId(Long spuId);
 
     List<PmsSkuInfo> selectAllSku();
+
+    List<PmsSkuInfo> selectAll();
 }

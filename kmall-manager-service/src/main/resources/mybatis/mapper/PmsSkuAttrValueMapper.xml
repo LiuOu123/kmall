@@ -7,6 +7,9 @@
     <result column="value_id" property="valueId" jdbcType="BIGINT" />
     <result column="sku_id" property="skuId" jdbcType="BIGINT" />
   </resultMap>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select * from pms_sku_attr_value where sku_id=#{value}
+  </select>
   <sql id="Example_Where_Clause" >
     <where >
       <foreach collection="oredCriteria" item="criteria" separator="or" >

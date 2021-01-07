@@ -38,6 +38,21 @@
       <result column="sale_attr_value_name" property="saleAttrValueName" jdbcType="VARCHAR" />
     </collection>
   </resultMap>
+  <resultMap id="PmsSkuInfoAll" type="com.kgc.kmall.bean.PmsSkuInfo" autoMapping="true">
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="product_id" property="spuId" jdbcType="BIGINT" />
+    <result column="price" property="price" jdbcType="DOUBLE" />
+    <result column="sku_name" property="skuName" jdbcType="VARCHAR" />
+    <result column="sku_desc" property="skuDesc" jdbcType="VARCHAR" />
+    <result column="weight" property="weight" jdbcType="DOUBLE" />
+    <result column="tm_id" property="tmId" jdbcType="BIGINT" />
+    <result column="catalog3_id" property="catalog3Id" jdbcType="BIGINT" />
+    <result column="sku_default_img" property="skuDefaultImg" jdbcType="VARCHAR" />
+    <collection property="skuAttrValueList" ofType="com.kgc.kmall.bean.PmsSkuAttrValue" column="id" select="com.kgc.kmall.manager.mapper.PmsSkuAttrValueMapper.selectAll"></collection>
+  </resultMap>
+  <select id="getAllSku" resultMap="PmsSkuInfoAll">
+    select * from pms_sku_info;
+  </select>
   <sql id="Example_Where_Clause" >
     <where >
       <foreach collection="oredCriteria" item="criteria" separator="or" >

@@ -30,4 +30,6 @@ public interface PmsSkuInfoMapper {
     int updateByPrimaryKey(PmsSkuInfo record);
 
     List<PmsSkuInfo> selectBySpuId(Long spuId);
+
+    List<PmsSkuInfo> getAllSku();
 }

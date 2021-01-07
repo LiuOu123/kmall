@@ -28,4 +28,6 @@ public interface PmsSkuAttrValueMapper {
     int updateByPrimaryKeySelective(PmsSkuAttrValue record);
 
     int updateByPrimaryKey(PmsSkuAttrValue record);
+
+    List<PmsSkuAttrValue> selectAll(int skuId);
 }
